@@ -6,18 +6,18 @@
 	<div id="create-burger">
 		<form action="/" method="POST">
 			<input id="burger-name" type="text" name="burger_name" placeholder="Create a burger">
-			<button id="submit-btn" type="submit">Manifest</button>
+			<button id="submit-btn" type="submit">Create!</button>
 		</form>
 	</div>
 
 	<section id="burgers-container">
 		<div id="burgers-available">
-			<h2>Burgers Available</h2>
+			<h2>Current Burgers</h2>
 			{{#each burgers}}
 				{{#unless this.devoured}}
 				  <div class="burger">
 				    <form class="devour-burger-form" action="/{{id}}?_method=PUT" method="POST">
-				  		<button class="eat-btn">EAT</button>
+				  		<button class="eat-btn">Enjoy</button>
 				    </form>
 						{{burger_name}} <span>#{{id}}</span>
 				  </div>
@@ -25,7 +25,7 @@
 			{{/each}}
 		</div>
 		<div id="burgers-devoured">
-			<h2>Burger Heaven</h2>
+			<h2>Past Burgers</h2>
 			{{#each burgers}}
 				{{#if this.devoured}}
 				  <div class="burger">{{burger_name}} <span>#{{id}}</span></div>
